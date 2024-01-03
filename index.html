@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JEWNHYF56"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9JEWNHYF56');
+</script>
+    <link rel="icon" type="image/png" href="favicon.png"/>
+    <title>Bit-Bat-Bot by Orange Games</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: orange;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .square {
+            position: absolute;
+            background-color: darkorange;
+        }
+
+.square1 { width: 100px; height: 100px; top: 20%; left: 30%; }
+.square2 { width: 150px; height: 150px; top: 50%; left: 60%; }
+.square3 { width: 200px; height: 200px; top: 70%; left: 10%; }
+.square4 { width: 80px; height: 80px; top: 5%; left: 70%; }
+.square5 { width: 120px; height: 120px; top: 30%; left: 10%; }
+.square6 { width: 50px; height: 50px; top: 50%; left: 80%; }
+.square7 { width: 220px; height: 220px; top: 40%; left: 30%; }
+.square8 { width: 90px; height: 90px; top: 10%; left: 20%; }
+.square9 { width: 110px; height: 110px; top: 60%; left: 90%; }
+.square10 { width: 70px; height: 70px; top: 15%; left: 40%; }
+.square11 { width: 130px; height: 130px; top: 85%; left: 50%; }
+.square12 { width: 60px; height: 60px; top: 25%; left: 75%; }
+.square13 { width: 140px; height: 140px; top: 55%; left: 5%; }
+.square14 { width: 95px; height: 95px; top: 35%; left: 65%; }
+.square15 { width: 65px; height: 65px; top: 10%; left: 15%; }
+.square16 { width: 85px; height: 85px; top: 20%; left: 25%; }
+.square17 { width: 75px; height: 75px; top: 30%; left: 35%; }
+.square18 { width: 95px; height: 95px; top: 40%; left: 45%; }
+.square19 { width: 55px; height: 55px; top: 50%; left: 55%; }
+.square20 { width: 45px; height: 45px; top: 60%; left: 65%; }
+.square21 { width: 35px; height: 35px; top: 70%; left: 75%; }
+.square22 { width: 25px; height: 25px; top: 80%; left: 85%; }
+.square23 { width: 15px; height: 15px; top: 90%; left: 95%; }
+.square24 { width: 50px; height: 50px; top: 10%; left: 85%; }
+
+
+        .game-container {
+            width: 600px; /* Fixed width for consistency */
+            height: 600px; /* Fixed height for consistency */
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template: repeat(3, 100px) / repeat(3, 100px);
+        }
+
+        .cell {
+            border: 1px solid #fff;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 36px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .punk { color: red; } /* Style for Punk */
+        .ape { color: white; } /* Style for Ape */
+
+        #sb, #st {
+            margin-top: 10px;
+        }
+
+        .win { animation: winAnim 3s; }
+        @keyframes winAnim { from { background-color: orange; } to { background-color: darkorange; } }
+
+        .external-link a {
+            color: orange; /* Change the color to orange */
+            text-decoration: none;
+        }
+
+        .external-link a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="square square1"></div>
+    <div class="square square2"></div>
+    <div class="square square3"></div>
+    <div class="square square4"></div>
+    <div class="square square5"></div>
+    <div class="square square6"></div>
+    <div class="square square7"></div>
+    <div class="square square8"></div>
+    <div class="square square9"></div>
+    <div class="square square10"></div>
+    <div class="square square11"></div>
+    <div class="square square12"></div>
+    <div class="square square13"></div>
+    <div class="square square14"></div>
+    <div class="square square15"></div>
+    <div class="square square16"></div>
+    <div class="square square17"></div>
+    <div class="square square18"></div>
+    <div class="square square19"></div>
+    <div class="square square20"></div>
+    <div class="square square21"></div>
+    <div class="square square22"></div>
+    <div class="square square23"></div>
+    <div class="square square24"></div>
+
+    <div class="game-container">
+        <h2>Bit-Bat-Bot</h2>
+        <div id="gb" class="grid"></div>
+        <p id="st"></p>
+        <div id="sb">
+            <p class="punk">Punk X: <span id="sX">0</span></p>
+            <p class="ape">Ape O: <span id="sO">0</span></p>
+        </div>
+        <p class="external-link"><a href="https://magiceden.io/ordinals/item-details/02abc838b0719e8b79eb112c996b4969fae8d59dd9fbd54fae131a0062547104i0" target="_blank"><b>This game is inscribed on a rare sat mined by Satoshi Nakamoto in 2009. Collect it!</b></a></p>
+    </div>
+
+    <script>
+        var p = 'X', gs = Array(9).fill(''), ga = true, s = { X: 0, O: 0 };
+        window.onload = () => {
+            const b = document.getElementById('gb');
+            for (let i = 0; i < 9; i++) {
+                let c = document.createElement('div');
+                c.className = 'cell';
+                c.onclick = () => m(c, i);
+                b.appendChild(c);
+            }
+        };
+
+        function m(c, i) {
+            if (gs[i] !== '' || !ga) return;
+            gs[i] = p;
+            c.innerText = p;
+            c.style.color = p === 'X' ? 'red' : 'white'; // Set color based on player
+            ch();
+        }
+
+        function ch() {
+            const w = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
+            let r = w.some(c => {
+                if (gs[c[0]] && gs[c[0]] === gs[c[1]] && gs[c[0]] === gs[c[2]]) {
+                    c.forEach(i => document.querySelectorAll('.cell')[i].classList.add('win'));
+                    us(p);
+                    return true;
+                }
+            });
+            if (r) {
+                document.getElementById('st').innerText = (p === 'X' ? 'Punk X' : 'Ape O') + ' Wins!';
+                ga = false;
+                setTimeout(rs, 3000);
+                return;
+            }
+            if (!gs.includes('')) {
+                document.getElementById('st').innerText = 'Draw!';
+                ga = false;
+                setTimeout(rs, 3000);
+                return;
+            }
+            p = p === 'X' ? 'O' : 'X';
+        }
+
+        function rs() {
+            gs.fill('');
+            document.querySelectorAll('.cell').forEach(c => {
+                c.innerText = '';
+                c.classList.remove('win');
+                c.style.color = ''; // Reset color
+            });
+            ga = true;
+            p = 'X';
+        }
+
+        function us(p) {
+            s[p]++;
+            document.getElementById('s' + p).innerText = s[p];
+        }
+    </script>
+</body>
+</html>
